@@ -30,10 +30,13 @@ export function CMSImage({ image, hashWidth, hashHeight, ...props }: IProps) {
   };
 
   const blurDataURL = useMemo(() => {
+    const width = hashWidth || props.width || 500;
+    const height = hashHeight || props.height || 500;
+
     return image.additionalData?.blurhash
-      ? blurHashToDataURL(image.additionalData.blurhash, hashWidth || 500, hashHeight || 500)
+      ? blurHashToDataURL(image.additionalData.blurhash, +width, +height)
       : undefined;
-  }, [image.additionalData?.blurhash]);
+  }, [image.additionalData?.blurhash, hashWidth, props.width, hashHeight, props.height]);
 
   if (blurDataURL) {
     calculatedProps.placeholder = 'blur';
