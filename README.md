@@ -31,6 +31,14 @@ query {
 }
 ```
 
+### Decode in browser
+- [TypeScript](./docs/TypeScript.md)
+- [React](./docs/React.md)
+
+
 ### NOTE
 Blurhash generates on image upload, so it will only be available for images uploaded after installation of this bundle.
 
+## Credits
+- Algorithm authors - [blurha.sh](https://blurha.sh/)
+- Inspired by [symfony/ux-lazy-image](https://github.com/symfony/ux-lazy-image)
