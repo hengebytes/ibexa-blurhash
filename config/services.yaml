@@ -19,6 +19,8 @@ services:
     HengeBytes\IbexaBlurhashBundle\Service\:
         resource: '../src/Service'
 
+    Intervention\Image\ImageManager: ~
+
     HengeBytes\IbexaBlurhashBundle\FieldType\Image\TypeDecorator:
         decorates: Ibexa\Core\FieldType\Image\Type
         arguments:
@@ -27,4 +29,10 @@ services:
         tags:
             - { name: ibexa.field_type, alias: ezimage }
 
-    Intervention\Image\ImageManager: ~
+    Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\ImageConverter:
+        class: HengeBytes\IbexaBlurhashBundle\FieldType\Image\ImageConverter
+        arguments:
+            - '@Ibexa\Core\FieldType\Image\IO\Legacy'
+            - '@Ibexa\Core\IO\UrlRedecorator'
+        tags:
+            - { name: ibexa.field_type.storage.legacy.converter, alias: ezimage }
