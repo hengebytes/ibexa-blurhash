@@ -13,8 +13,8 @@ services:
         bind:
             $encodeWidth: '%ibexa_blurhash.encode.resize_original_width%'
             $encodeHeight: '%ibexa_blurhash.encode.resize_original_height%'
-            $hashXCount: '%ibexa_blurhash.encode.blurhash_x%'
-            $hashYCount: '%ibexa_blurhash.encode.blurhash_y%'
+            $hashXCount: '%ibexa_blurhash.encode.blurhash_x_count%'
+            $hashYCount: '%ibexa_blurhash.encode.blurhash_y_count%'
 
     HengeBytes\IbexaBlurhashBundle\Service\:
         resource: '../src/Service'
