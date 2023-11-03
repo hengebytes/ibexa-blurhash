@@ -1,14 +1,20 @@
 parameters:
-    ibexa_blurhash.encode.width: 75
-    ibexa_blurhash.encode.height: 75
+    # uploaded image resized to 75x75 before encoding
+    ibexa_blurhash.encode.resize_original_width: 75
+    ibexa_blurhash.encode.resize_original_height: 75
+    # blurhash generated with 4x3 component, x and y component counts must be between 1 and 9 inclusive.
+    ibexa_blurhash.encode.blurhash_x_count: 4
+    ibexa_blurhash.encode.blurhash_y_count: 3
 
 services:
     _defaults:
         autowire: true
         autoconfigure: true
         bind:
-            $encodeWidth: '%ibexa_blurhash.encode.width%'
-            $encodeHeight: '%ibexa_blurhash.encode.height%'
+            $encodeWidth: '%ibexa_blurhash.encode.resize_original_width%'
+            $encodeHeight: '%ibexa_blurhash.encode.resize_original_height%'
+            $hashXCount: '%ibexa_blurhash.encode.blurhash_x%'
+            $hashYCount: '%ibexa_blurhash.encode.blurhash_y%'
 
     HengeBytes\IbexaBlurhashBundle\Service\:
         resource: '../src/Service'

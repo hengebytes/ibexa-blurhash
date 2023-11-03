@@ -10,7 +10,9 @@ class BlurhashGeneratorService
     public function __construct(
         private readonly ImageManager $imageManager,
         private readonly int $encodeWidth,
-        private readonly int $encodeHeight
+        private readonly int $encodeHeight,
+        private readonly int $hashXCount,
+        private readonly int $hashYCount,
     ) {
     }
 
@@ -38,6 +40,6 @@ class BlurhashGeneratorService
             $pixels[] = $row;
         }
 
-        return BlurhashEncoder::encode($pixels, 4, 3);
+        return BlurhashEncoder::encode($pixels, $this->hashXCount, $this->hashYCount);
     }
 }
