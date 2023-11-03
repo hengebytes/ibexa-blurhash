@@ -1,0 +1,32 @@
+{
+    "name": "hengebytes/ibexa-blurhash",
+    "type": "symfony-bundle",
+    "description": "Symfony bundle to generate Image Blurhash in Ibexa CMS",
+    "keywords": [
+        "Ibexa",
+        "Blurhash",
+        "Symfony",
+        "Bundle"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ivan Ternovtsii",
+            "email": "it@hengebytes.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.1",
+        "kornrunner/blurhash": "^1.1",
+        "symfony/config": "^5.4|^6.0|^7.0",
+        "symfony/dependency-injection": "^5.4|^6.0|^7.0",
+        "symfony/http-kernel": "^5.4|^6.0|^7.0",
+        "ibexa/graphql": "^4.0",
+        "intervention/image": "^2.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "HengeBytes\\IbexaBlurhashBundle\\": "src/"
+        }
+    }
+}

@@ -1,0 +1,10 @@
+ImageAdditionalDataExtended:
+    type: object
+    decorator: true
+    heirs:
+        - ImageAdditionalData
+    config:
+        fields:
+            blurhash:
+                type: "String"
+                description: "Blurhash representation of the image"

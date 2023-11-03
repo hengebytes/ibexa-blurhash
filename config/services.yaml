@@ -1,0 +1,24 @@
+parameters:
+    ibexa_blurhash.encode.width: 75
+    ibexa_blurhash.encode.height: 75
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        bind:
+            $encodeWidth: '%ibexa_blurhash.encode.width%'
+            $encodeHeight: '%ibexa_blurhash.encode.height%'
+
+    HengeBytes\IbexaBlurhashBundle\Service\:
+        resource: '../src/Service'
+
+    HengeBytes\IbexaBlurhashBundle\FieldType\Image\TypeDecorator:
+        decorates: Ibexa\Core\FieldType\Image\Type
+        arguments:
+            - '@.inner'
+            - '@HengeBytes\IbexaBlurhashBundle\Service\BlurhashGeneratorService'
+        tags:
+            - { name: ibexa.field_type, alias: ezimage }
+
+    Intervention\Image\ImageManager: ~
